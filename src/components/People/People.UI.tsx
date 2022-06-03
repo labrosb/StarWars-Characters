@@ -20,6 +20,7 @@ export const Header = styled.h1`
   font-family: star-wars;
   text-align: center;
   margin-top: 60px;
+  padding: 0 12px;
 `;
 
 export const Content = styled.div`
@@ -31,7 +32,6 @@ export const Content = styled.div`
   min-width: ${breakpoint};
   @media (max-width: ${breakpoint}) {
     min-width: 99%;
-    min-width: ${breakpoint_2};
   }
   @media (max-width: ${breakpoint_2}) {
     min-width: 320px;
