@@ -6,6 +6,9 @@ import Colors from '../../constants/theme';
 export const staticWidth = '1080px';
 export const dynamicWidth = '96%';
 
+export const breakpoint = '768px';
+export const breakpoint_2 = '520px';
+
 export const Container = styled.div`
   background: url(${background});
   display: flex;
@@ -25,11 +28,26 @@ export const Content = styled.div`
   align-items: center;
   margin: 20px auto;
   width: 100%;
+  min-width: ${breakpoint};
+  @media (max-width: ${breakpoint}) {
+    min-width: 99%;
+    min-width: ${breakpoint_2};
+  }
+  @media (max-width: ${breakpoint_2}) {
+    min-width: 320px;
+  }
 `;
 
 export const SearchContainer = styled.div`
   width: ${dynamicWidth};
   max-width: ${staticWidth};
+  @media (max-width: ${breakpoint}) {
+    width: 99%;
+    min-width: 520px;
+  }
+  @media (max-width: ${breakpoint_2}) {
+    min-width: 99%;
+  }
 `;
 
 export const SearchInput = styled.input`
@@ -40,6 +58,9 @@ export const SearchInput = styled.input`
   ::placeholder {
     font-size: 15px;
     color: ${Colors.textFade};
+    @media (max-width: ${breakpoint}) {
+      font-size: 12px;
+    }
   }
 `;
 
@@ -48,4 +69,7 @@ export const SearchIcon = styled(FontAwesomeIcon)`
   height: 14px;
   color: ${Colors.textFade};
   opacity: 0.6;
+  @media (max-width: ${breakpoint}) {
+    height: 12px;
+  }
 `;

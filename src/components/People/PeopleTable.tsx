@@ -60,11 +60,11 @@ const PeopleTable: React.FC<Props> = ({
             <Text>Mass</Text>
             <SortIcon onClick={() => onRowsSort('mass')} />
           </Column>
-          <Column>
+          <Column $responsive>
             <Text>Edited</Text>
             <SortIcon onClick={() => onRowsSort('edited')} />
           </Column>
-          <Column>
+          <Column $responsive>
             <Text>Created</Text>
             <SortIcon onClick={() => onRowsSort('created')} />
           </Column>
@@ -86,10 +86,10 @@ const PeopleTable: React.FC<Props> = ({
             <Column $width={650}>
               <Text>{person.mass }</Text>
             </Column>
-            <Column>
+            <Column $responsive>
               <Text>{formatDate(person.edited)}</Text>
             </Column>
-            <Column>
+            <Column $responsive>
               <Text>{formatDate(person.created)}</Text>
             </Column>
             <Column>

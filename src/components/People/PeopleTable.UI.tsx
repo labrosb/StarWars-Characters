@@ -1,16 +1,19 @@
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Colors from '../../constants/theme';
-import { staticWidth, dynamicWidth } from './People.UI';
+import { breakpoint, breakpoint_2, dynamicWidth, staticWidth } from './People.UI';
 
 type RowProps = { $special?: boolean }
-type ColumnProps = { $width?: number };
+type ColumnProps = { $width?: number, $responsive?: boolean };
 
 export const Table = styled.div`
   box-sizing: border-box;
   width: ${dynamicWidth};
   max-width: ${staticWidth};
   opacity: 0.96;
+  @media (max-width: ${breakpoint}) {
+    width: 99%;
+  }
 `;
 
 export const Row = styled.div<RowProps>`
@@ -36,6 +39,13 @@ export const Column = styled.div<ColumnProps>`
   align-items: center;
   padding: 0 20px;
   width: ${({ $width }) => $width ? `${$width}px` : '100%'};
+  @media (max-width: ${breakpoint}) {
+    padding: 0 5px;
+    width: 100%;
+  }
+  @media (max-width: ${breakpoint_2}) {
+    ${({ $responsive }) => $responsive && `display: none;`
+  }
 `;
 
 export const Box = styled.div`
@@ -44,6 +54,9 @@ export const Box = styled.div`
   min-width: 100px;
   height: 100%;
   padding-left: 15px;
+  @media (max-width: ${breakpoint_2}) {
+    padding-left: 0;
+  }
 `;
 
 export const LoadingBox = styled(Box)`
@@ -60,6 +73,9 @@ export const LinkBox = styled(Box)`
 export const Text = styled.p`
   font-size: 15px;
   color: ${Colors.text};
+  @media (max-width: ${breakpoint}) {
+    font-size: 12px;
+  }
 `;
 
 export const TitleIcon = styled(FontAwesomeIcon)`
@@ -86,9 +102,15 @@ export const MoreButton = styled.button`
     cursor: pointer;
     opacity: 0.9;
   }
+  @media (max-width: ${breakpoint}) {
+    width: 99%;
+  }
 `;
 
 export const MoreIcon = styled(FontAwesomeIcon)`
   height: 22px;
   color: ${Colors.text};
+  @media (max-width: ${breakpoint}) {
+    height: 18px;
+  }
 `;
